@@ -6,13 +6,10 @@
 package bean;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,91 +20,43 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    private String email;
-    private String prenom;
-    private double motPasse;
-    private double tel;
-    @ManyToOne
-    private Pays pays;
-    @OneToMany(mappedBy = "user")
-    private List<Mission> missions;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String login;
+    private String passeword;
 
-    @OneToMany(mappedBy = "user")
-    private List<Compte> comptes;
-
-    public String getPrenom() {
-        return prenom;
+    public String getPasseword() {
+        return passeword;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public double getMotPasse() {
-        return motPasse;
-    }
-
-    public void setMotPasse(double motPasse) {
-        this.motPasse = motPasse;
-    }
-
-    public double getTel() {
-        return tel;
-    }
-
-    public void setTel(double tel) {
-        this.tel = tel;
-    }
-
-    public Pays getPays() {
-        return pays;
-    }
-
-    public void setPays(Pays pays) {
-        this.pays = pays;
-    }
-
-    public List<Mission> getMissions() {
-        return missions;
-    }
-
-    public void setMissions(List<Mission> missions) {
-        this.missions = missions;
-    }
-
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
+    public void setPasseword(String passeword) {
+        this.passeword = passeword;
     }
 
     
     
-    public String getEmail() {
-        return email;
+    public String getLogin() {
+        return login;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (email != null ? email.hashCode() : 0);
+        hash += (login != null ? login.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the email fields are not set
+        // TODO: Warning - this method won't work in the case the login fields are not set
         if (!(object instanceof User)) {
             return false;
         }
         User other = (User) object;
-        if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
+        if ((this.login == null && other.login != null) || (this.login != null && !this.login.equals(other.login))) {
             return false;
         }
         return true;
@@ -115,7 +64,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "bean.User[ id=" + email + " ]";
+        return "bean.User[ id=" + login + " ]";
     }
-
+    
 }

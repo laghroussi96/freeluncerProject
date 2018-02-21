@@ -20,6 +20,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Devise implements Serializable {
 
+   
+
     
 
     private static final long serialVersionUID = 1L;
@@ -29,7 +31,18 @@ public class Devise implements Serializable {
     private String nom;
     @OneToMany(mappedBy = "devise")
     private List<Budget> budgets;
+     @OneToMany(mappedBy = "devise")
+    private List<Developpeur> developpeurs;
 
+    public List<Developpeur> getDeveloppeurs() {
+        return developpeurs;
+    }
+
+    public void setDeveloppeurs(List<Developpeur> developpeurs) {
+        this.developpeurs = developpeurs;
+    }
+
+     
     public String getNom() {
         return nom;
     }

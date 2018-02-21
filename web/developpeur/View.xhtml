@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DeveloppeurViewDlg" widgetVar="DeveloppeurViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDeveloppeurTitle}">
+            <h:form id="DeveloppeurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{developpeurController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_tarif}"/>
+                        <h:outputText value="#{developpeurController.selected.tarif}" title="#{bundle.ViewDeveloppeurTitle_tarif}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_devise}"/>
+                        <h:outputText value="#{developpeurController.selected.devise}" title="#{bundle.ViewDeveloppeurTitle_devise}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_nom}"/>
+                        <h:outputText value="#{developpeurController.selected.nom}" title="#{bundle.ViewDeveloppeurTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_prenom}"/>
+                        <h:outputText value="#{developpeurController.selected.prenom}" title="#{bundle.ViewDeveloppeurTitle_prenom}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_motPasse}"/>
+                        <h:outputText value="#{developpeurController.selected.motPasse}" title="#{bundle.ViewDeveloppeurTitle_motPasse}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_tel}"/>
+                        <h:outputText value="#{developpeurController.selected.tel}" title="#{bundle.ViewDeveloppeurTitle_tel}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_diplome}"/>
+                        <h:outputText value="#{developpeurController.selected.diplome}" title="#{bundle.ViewDeveloppeurTitle_diplome}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_pays}"/>
+                        <h:outputText value="#{developpeurController.selected.pays}" title="#{bundle.ViewDeveloppeurTitle_pays}"/>
+                        <h:outputText value="#{bundle.ViewDeveloppeurLabel_id}"/>
+                        <h:outputText value="#{developpeurController.selected.id}" title="#{bundle.ViewDeveloppeurTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DeveloppeurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

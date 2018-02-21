@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,19 +23,27 @@ public class Paiement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String pourcentage;
+    private double pourcentage;
     @ManyToOne
     private Compte compte;
-    @OneToOne
-    private Operation operation;
-    @OneToOne
-    private Mission mission;
+    @ManyToOne
+    private Admin admin;
 
-    public String getPourcentage() {
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+    
+    
+    
+    public double getPourcentage() {
         return pourcentage;
     }
 
-    public void setPourcentage(String pourcentage) {
+    public void setPourcentage(double pourcentage) {
         this.pourcentage = pourcentage;
     }
 
@@ -48,21 +55,6 @@ public class Paiement implements Serializable {
         this.compte = compte;
     }
 
-    public Operation getOperation() {
-        return operation;
-    }
-
-    public void setOperation(Operation operation) {
-        this.operation = operation;
-    }
-
-    public Mission getMission() {
-        return mission;
-    }
-
-    public void setMission(Mission mission) {
-        this.mission = mission;
-    }
 
     public Long getId() {
         return id;

@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -34,7 +33,7 @@ public class Mission implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateLimite;
     @ManyToOne
-    private User user;
+    private Recruteur recruteur;
     @ManyToOne
     private Type type;
     @ManyToOne
@@ -43,11 +42,23 @@ public class Mission implements Serializable {
     private Diplome diplome;
     @ManyToOne
     private Budget budget;
+    @ManyToOne
+    private Admin admin;
     @OneToMany(mappedBy = "mission")
     private List<TechnologieMission> technologieMissions;
     @OneToMany(mappedBy = "mission")
     private List<Review> reviews;
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    
+    
     public String getCommentaire() {
         return commentaire;
     }
@@ -72,12 +83,12 @@ public class Mission implements Serializable {
         this.dateLimite = dateLimite;
     }
 
-    public User getUser() {
-        return user;
+    public Recruteur getRecruteur() {
+        return recruteur;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setRecruteur(Recruteur recruteur) {
+        this.recruteur = recruteur;
     }
 
     public Type getType() {

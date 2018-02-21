@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -29,12 +30,18 @@ public class Developpeur implements Serializable {
     private String id;
     private String nom;
     private String prenom;
-    private double motPasse;
     private double tel;
+    private double tarif;
+    @ManyToOne
+    private Devise devise;
     @ManyToOne
     private Diplome diplome;
     @ManyToOne
     private Pays pays;
+    @ManyToOne
+    private Admin admin;
+    @OneToOne
+    private User user;
     @OneToMany(mappedBy = "developpeur")
     private List<Compte> comptes;
     @OneToMany(mappedBy = "developpeur")
@@ -48,6 +55,40 @@ public class Developpeur implements Serializable {
 
     @OneToMany(mappedBy = "developpeur")
     private List<LangueSkill> langueSkills;
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
+    
+    public double getTarif() {
+        return tarif;
+    }
+
+    public void setTarif(double tarif) {
+        this.tarif = tarif;
+    }
+
+    public Devise getDevise() {
+        return devise;
+    }
+
+    public void setDevise(Devise devise) {
+        this.devise = devise;
+    }
 
     public String getNom() {
         return nom;
@@ -64,15 +105,6 @@ public class Developpeur implements Serializable {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-
-    public double getMotPasse() {
-        return motPasse;
-    }
-
-    public void setMotPasse(double motPasse) {
-        this.motPasse = motPasse;
-    }
-
     public double getTel() {
         return tel;
     }

@@ -30,7 +30,7 @@ public class Pays implements Serializable {
     @OneToMany(mappedBy = "pays")
     private List<Developpeur> developpeurs;
     @OneToMany(mappedBy = "pays")
-    private List<User> users;
+    private List<Recruteur> recruteurs;
 
     public String getNom() {
         return nom;
@@ -48,12 +48,12 @@ public class Pays implements Serializable {
         this.developpeurs = developpeurs;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Recruteur> getRecruteurs() {
+        return recruteurs;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setRecruteurs(List<Recruteur> recruteurs) {
+        this.recruteurs = recruteurs;
     }
 
     

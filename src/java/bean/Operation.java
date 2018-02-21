@@ -27,7 +27,19 @@ public class Operation implements Serializable {
     private double montant;
     @ManyToOne
     private Compte compte;
+    @ManyToOne
+    private Admin admin;
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+    
+
+    
     public int getType() {
         return type;
     }

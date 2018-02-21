@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -27,32 +28,13 @@ public class Compte implements Serializable {
     @Id
     private String id;
     private double solde;
-    private boolean isAdmin;
-    @ManyToOne
+    @OneToOne
     private User user;
-    @ManyToOne
-    private Developpeur developpeur;
     @OneToMany(mappedBy = "compte")
     private List<Paiement> paiements;
 
     @OneToMany(mappedBy = "compte")
     private List<Operation> operations;
-
-    public double getSolde() {
-        return solde;
-    }
-
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
-
-    public boolean isIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
 
     public User getUser() {
         return user;
@@ -62,13 +44,15 @@ public class Compte implements Serializable {
         this.user = user;
     }
 
-    public Developpeur getDeveloppeur() {
-        return developpeur;
+    
+    public double getSolde() {
+        return solde;
     }
 
-    public void setDeveloppeur(Developpeur developpeur) {
-        this.developpeur = developpeur;
+    public void setSolde(double solde) {
+        this.solde = solde;
     }
+
 
     public List<Paiement> getPaiements() {
         return paiements;
