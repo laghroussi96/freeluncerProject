@@ -22,6 +22,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Recruteur implements Serializable {
 
+    @OneToMany(mappedBy = "recruteur")
+    private List<Notification> notifications;
+
     private static final long serialVersionUID = 1L;
     @Id
     private String email;

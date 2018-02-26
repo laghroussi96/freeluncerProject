@@ -27,8 +27,30 @@ public class Notification implements Serializable {
     @ManyToOne
     private Developpeur developpeur;
     @ManyToOne
+    private Recruteur recruteur;
+    @ManyToOne
     private Mission mission;
+    @ManyToOne
+    private Admin admin;
 
+    public Recruteur getRecruteur() {
+        return recruteur;
+    }
+
+    public void setRecruteur(Recruteur recruteur) {
+        this.recruteur = recruteur;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    
+    
     public String getText() {
         return text;
     }

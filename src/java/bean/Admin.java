@@ -20,6 +20,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Admin implements Serializable {
 
+    @OneToMany(mappedBy = "admin")
+    private List<Notification> notifications;
+
     
 
     private static final long serialVersionUID = 1L;

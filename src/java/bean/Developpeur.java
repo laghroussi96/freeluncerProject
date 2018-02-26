@@ -43,8 +43,6 @@ public class Developpeur implements Serializable {
     @OneToOne
     private User user;
     @OneToMany(mappedBy = "developpeur")
-    private List<Compte> comptes;
-    @OneToMany(mappedBy = "developpeur")
     private List<TechnologieSkill> technologieSkills;
 
     @OneToMany(mappedBy = "developpeur")
@@ -127,14 +125,6 @@ public class Developpeur implements Serializable {
 
     public void setPays(Pays pays) {
         this.pays = pays;
-    }
-
-    public List<Compte> getComptes() {
-        return comptes;
-    }
-
-    public void setComptes(List<Compte> comptes) {
-        this.comptes = comptes;
     }
 
     public List<TechnologieSkill> getTechnologieSkills() {

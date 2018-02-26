@@ -44,7 +44,7 @@ public class Compte implements Serializable {
         this.user = user;
     }
 
-    
+   
     public double getSolde() {
         return solde;
     }

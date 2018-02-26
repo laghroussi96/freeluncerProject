@@ -6,11 +6,13 @@
 package bean;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -25,11 +27,23 @@ public class Operation implements Serializable {
     private Long id;
     private int type;//1:credit 2:debit
     private double montant;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateOperation;
     @ManyToOne
     private Compte compte;
     @ManyToOne
     private Admin admin;
 
+    public Date getDateOperation() {
+        return dateOperation;
+    }
+
+    public void setDateOperation(Date dateOperation) {
+        this.dateOperation = dateOperation;
+    }
+
+    
+    
     public Admin getAdmin() {
         return admin;
     }
